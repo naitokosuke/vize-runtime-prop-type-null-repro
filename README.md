@@ -1,5 +1,7 @@
 # vize-runtime-prop-type-null-repro
 
+Reported as [ubugeeei-prod/vize#11252](https://github.com/ubugeeei-prod/vize/issues/11252).
+
 Minimal reproduction for invalid generated code in [vize](https://github.com/ubugeeei-prod/vize)'s content mapper.
 
 A runtime `defineProps()` object with a `type: null` prop makes vize write `typeof` on the object literal itself, which is a syntax error. Compiled component libraries declare props this way: in one project using Nuxt UI 4.12.0, 172 of the 190 `.vue` components it ships failed like this, with 8,525 syntax errors in total.
